@@ -1,2 +1,4 @@
 # 配置文件
 *.vscode
+*.pyc
+*__pycache__
