@@ -1,0 +1,9 @@
+In Python you can make variable.
+In Python you can make list.
+In Python you can make action.
+In Python you can make if and sentence.
+In Python you can make dict.
+In Python you can make input and while.
+In Python you can make function.
+In Python you can make class.
+In Python you can make file and exception.
