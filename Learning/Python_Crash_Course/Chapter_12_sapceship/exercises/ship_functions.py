@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-from bullet import Bullet
+from flank_bullet import Bullet
 
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
@@ -11,14 +11,12 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         event (_type_): 事件
         ship (_type_): 飞船实例
     """
-    if event.key == pygame.K_RIGHT:
-        ship.moving_right = True
-    elif event.key == pygame.K_LEFT:
-        ship.moving_left = True
+    if event.key == pygame.K_UP:
+        ship.moving_up = True
+    elif event.key == pygame.K_DOWN:
+        ship.moving_down = True
     elif event.key == pygame.K_SPACE:
         fire_bullet(ai_settings, screen, ship, bullets)
-    elif event.key == pygame.K_q:
-        sys.exit()
 
 
 def fire_bullet(ai_settings, screen, ship, bullets):
@@ -36,10 +34,10 @@ def check_keyup_events(event, ship):
         event (_type_): 事件
         ship (_type_): 飞船实例
     """
-    if event.key == pygame.K_RIGHT:
-        ship.moving_right = False
-    elif event.key == pygame.K_LEFT:
-        ship.moving_left = False
+    if event.key == pygame.K_UP:
+        ship.moving_up = False
+    elif event.key == pygame.K_DOWN:
+        ship.moving_down = False
 
 
 def check_events(ai_settings, screen, ship, bullets):
@@ -53,7 +51,7 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keyup_events(event, ship)
 
 
-def update_screen(ai_settings, screen, ship, alien, bullets):
+def update_screen(ai_settings, screen, ship, bullets):
     """更新屏幕上的图像，并切换到新屏幕
 
     Args:
@@ -69,13 +67,12 @@ def update_screen(ai_settings, screen, ship, alien, bullets):
         bullet.draw_bullet()
 
     ship.blitme()
-    alien.blitme()
 
     # 让最近绘制的屏幕可见
     pygame.display.flip()
 
 
-def update_bullet(bullets):
+def update_bullet(bullets, ship):
     """更新子弹的位置，并删除已消失的子弹
 
     Args:
@@ -86,5 +83,5 @@ def update_bullet(bullets):
 
     # 删除消失的子弹
     for bullet in bullets.copy():
-        if bullet.rect.bottom <= 0:
+        if bullet.rect.left >= ship.screen_rect.right:
             bullets.remove(bullet)
