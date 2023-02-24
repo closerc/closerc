@@ -40,7 +40,7 @@ def update_screen(ai_settings, screen, stars):
     pygame.display.flip()
 
 
-def get_number_alines_x(ai_settings, star_width):
+def get_number_stars_x(ai_settings, star_width):
     """计算每行可容纳多少个星星"""
     available_space_x = ai_settings.screen_width - 2 * star_width
     number_aliens_x = int(available_space_x / (2 * star_width))
@@ -56,24 +56,55 @@ def get_number_rows(ai_settings, star_height):
     return number_rows
 
 
-def create_star(ai_settings, screen, aliens, alien_number, row_number):
+def create_star(ai_settings, screen, stars, star_number, row_number):
     """创建一个星星并将其放在当前行"""
     star = Star(ai_settings, screen)
-    alien_width = star.rect.width
-    star.x = alien_width + 2 * alien_width * alien_number
+    star_width = star.rect.width
+    star.x = star_width + 2 * star_width * star_number
     star.rect.x = star.x
     star.rect.y = star.rect.height + 2 * star.rect.height * row_number
-    aliens.add(star)
+    stars.add(star)
 
 
 def create_fleet(ai_settings, screen, stars):
     """创建星星群"""
     # 创建一个星星，并计算一行可容纳多少个星星
     star = Star(ai_settings, screen)
-    number_aliens_x = get_number_alines_x(ai_settings, star.rect.width)
+    number_stars_x = get_number_stars_x(ai_settings, star.rect.width)
     number_rows = get_number_rows(ai_settings, star.rect.height)
 
-    # 创建第一行外星人
+    # 创建第一行星星
     for row_number in range(number_rows):
-        for star_number in range(number_aliens_x):
+        for star_number in range(number_stars_x):
             create_star(ai_settings, screen, stars, star_number, row_number)
+
+
+def create_row_star(ai_settings, screen, stars):
+    """创建一行星星"""
+    # 创建一个星星，并计算一行可容纳多少个星星
+    star = Star(ai_settings, screen)
+    number_stars_x = get_number_stars_x(ai_settings, star.rect.width)
+
+    # 创建第一行星星
+    for star_number in range(number_stars_x):
+        create_star(ai_settings, screen, stars, star_number, 0)
+
+
+def check_fleet_edges(ai_settings, screen, stars):
+    """有星星到达边缘时采取的措施"""
+    for star in stars.sprites():
+        if star.check_edges():
+            stars.remove(star)
+            create_row_star(ai_settings, screen, stars)
+
+
+def update_star(ai_settings, screen, stars):
+    """更新星星的位置，并删除已消失的星星"""
+
+    check_fleet_edges(ai_settings, screen, stars)
+
+    for star in stars.sprites():
+        star.rect.y += ai_settings.star_speed_factor
+
+    # 删除消失的星星,并生成新的一行星星
+    check_fleet_edges(ai_settings, screen, stars)

@@ -72,8 +72,8 @@ def create_fleet(ai_settings, screen, stars):
     star = Star(ai_settings, screen)
     number_stars_x = get_number_alines_x(ai_settings, star.rect.width)
     number_rows = get_number_rows(ai_settings, star.rect.height)
-    star_numbers = number_rows * number_stars_x
 
-    # 创建第一行外星人
-    for star_number in range(star_numbers):
-        create_star(ai_settings, screen, stars, number_stars_x, number_rows)
+    # 创建随机星星
+    for row_number in range(number_rows):
+        for star_number in range(number_stars_x):
+            create_star(ai_settings, screen, stars, ai_settings.screen_width, ai_settings.screen_height)
