@@ -1,8 +1,35 @@
 import csv
+from datetime import datetime
+from matplotlib import pyplot as plt
 
-filename = r'Learning\Python_Crash_Course\Chapter_16_download_data\sitka_weather_07-2014.csv'
+# 无雨量数据，用云量代替
+# 获取Sitka云量数据
+dates, clouds = [], []
+filename = r'Learning\Python_Crash_Course\Chapter_16_download_data\sitka_weather_2014.csv'
 with open(filename) as f:
     reader = csv.reader(f)
     header_row = next(reader)
-    for index, column_name in enumerate(header_row):
-        print(index, column_name)
+    for row in reader:
+        try:
+            current_date = datetime.strptime(row[0], "%Y-%m-%d")
+            cloud = int(row[20])
+        except ValueError:
+            print(current_date, "missing data.")
+        else:
+            dates.append(current_date)
+            clouds.append(cloud)
+
+# 可视化云量数据
+fig = plt.figure(dpi=128, figsize=(10, 6))
+plt.plot(dates, clouds, c='red', alpha=0.5)
+plt.fill_between(dates, clouds, facecolor='blue', alpha=0.1)
+
+# 设置图形格式
+title = "Daily cloud cover - 2014\nSitka, AK"
+plt.title(title, fontsize=20)
+plt.xlabel('', fontsize=16)
+fig.autofmt_xdate()
+plt.ylabel("Cloud Cover", fontsize=16)
+plt.tick_params(axis='both', which='major', labelsize=16)
+
+plt.show()
