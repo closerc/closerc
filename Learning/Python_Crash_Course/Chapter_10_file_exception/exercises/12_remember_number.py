@@ -5,7 +5,7 @@ import json
 
 def get_stored_number():
     """如果存储了数字，就获取它"""
-    filename = 'favorite_number.json'
+    filename = r'Chapter_10_test_file\favorite_number.json'
     try:
         with open(filename) as f_obj:
             number = json.load(f_obj)
@@ -18,7 +18,7 @@ def get_stored_number():
 def get_new_number():
     """提示用户输入数字"""
     number = input("Enter your favorite number: ")
-    filename = 'favorite_number.json'
+    filename = r'Chapter_10_test_file\favorite_number.json'
     with open(filename, 'w') as f_obj:
         json.dump(number, f_obj)
     return number

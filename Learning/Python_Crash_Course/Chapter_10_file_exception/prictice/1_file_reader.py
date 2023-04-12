@@ -6,7 +6,7 @@ with open(filename) as file_object:
     print(contents.rstrip())
  """
 
-filename = 'pi_digits.txt'
+filename = r'Chapter_10_test_file\pi_digits.txt'
 with open(filename) as file_object:
     lines = file_object.readlines()
 

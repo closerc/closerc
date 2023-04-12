@@ -15,9 +15,13 @@ def count_words(filename):
         # 计算文件大致包含多少个单词
         words = contents.split()
         num_words = len(words)
-        print("The file " + filename + " has about " + str(num_words) + "words.")
+        print("The file " + filename.split('\\')[-1] +
+              " has about " + str(num_words) + " words.")
 
 
-filenames = ['alice.txt', 'siddhartha.txt', 'moby_dict.txt', 'little_women.txt']
+filenames = ['alice.txt', 'siddhartha.txt',
+             'moby_dict.txt', 'little_women.txt']
 for filename in filenames:
-    count_words(filename)
+    file_path = r'Chapter_10_test_file'
+    file_path = file_path + '\\' + filename
+    count_words(file_path)

@@ -13,4 +13,6 @@ def read_file(filename):
 
 filenames = ['cats.txt', 'dogs.txt']
 for filename in filenames:
-    read_file(filename)
+    file_path = r'Chapter_10_test_file'
+    file_path = file_path + '\\' + filename
+    read_file(file_path)

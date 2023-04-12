@@ -2,7 +2,7 @@
 
 import json
 
-filename = 'favorite_number.json'
+filename = r'Chapter_10_test_file\favorite_number.json'
 number = input("Enter your favorite number: ")
 with open(filename, 'w') as f_obj:
     json.dump(number, f_obj)

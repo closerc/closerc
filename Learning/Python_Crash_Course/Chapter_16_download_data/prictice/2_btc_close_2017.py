@@ -3,7 +3,7 @@ import pygal
 from itertools import groupby
 
 # 将数据加载到一个列表中
-filename = 'btc_close_2017_urllib.json'
+filename = r'Chapter_16_test_file\btc_close_2017_urllib.json'
 with open(filename) as f:
     btc_data = json.load(f)
 
@@ -44,7 +44,7 @@ def draw_line(x_data, y_data, title, y_legend):
     line_chart.title = title
     line_chart.x_labels = x_unique
     line_chart.add(y_legend, y_mean)
-    line_chart.render_to_file(title + '.svg')
+    line_chart.render_to_file('Chapter_16_test_file' + '\\' + title + '.svg')
 
     return line_chart
 
@@ -66,10 +66,10 @@ line_chart_weekday = draw_line(weekdays_int, close[1:idx_week],
                                '收盘价星期均值（¥）', '星期均值')
 line_chart_weekday.x_labels = ['周一', '周二', '周三', '周四',
                                '周五', '周六', '周日']
-line_chart_weekday.render_to_file('收盘价星期均值（¥）.svg')
+line_chart_weekday.render_to_file(r'Chapter_16_test_file\收盘价星期均值（¥）.svg')
 
 # 整合图表成数据仪表盘
-with open('收盘价Dashboard.html', 'w', encoding='utf8') as html_file:
+with open(r'Chapter_16_test_file\收盘价Dashboard.html', 'w', encoding='utf8') as html_file:
     html_file.write('<html><head><title>收盘价Dashboard</title><meta charset="utf-8"></head><body>\n')
     for svg in ['收盘价折线图（¥）.svg', '收盘价对数变换折线图（¥）.svg',
                 '收盘价月日均值（¥）.svg', '收盘价周日均值（¥）.svg',

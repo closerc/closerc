@@ -11,4 +11,4 @@ values = list(map(lambda x, y: (x, y), rw.x_values, rw.y_values))
 scatter = pygal.XY(stroke=False)
 scatter.title = "Random Walk"
 scatter.add('rw', values)
-scatter.render_to_file('random_walk.svg')
+scatter.render_to_file(r'Chapter_15_test_file\random_walk.svg')

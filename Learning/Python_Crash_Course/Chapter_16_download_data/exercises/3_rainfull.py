@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 # 无雨量数据，用云量代替
 # 获取Sitka云量数据
 dates, clouds = [], []
-filename = r'Learning\Python_Crash_Course\Chapter_16_download_data\sitka_weather_2014.csv'
+filename = r'Chapter_16_test_file\sitka_weather_2014.csv'
 with open(filename) as f:
     reader = csv.reader(f)
     header_row = next(reader)

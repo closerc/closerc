@@ -1,6 +1,6 @@
 {
     "python.analysis.typeCheckingMode": "off",
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": ["--ignore=E501"],
+    "python.linting.flake8Args": ["--ignore=E501, W504"],
     "python.formatting.provider": "yapf"    // Alt + Shift + F
 }

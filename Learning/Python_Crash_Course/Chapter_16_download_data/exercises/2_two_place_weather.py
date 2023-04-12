@@ -22,7 +22,7 @@ def get_weather_data(filename, dates, highs, lows):
 
 
 # 获取Sitka天气数据
-filename = r'Learning\Python_Crash_Course\Chapter_16_download_data\sitka_weather_2014.csv'
+filename = r'Chapter_16_test_file\sitka_weather_2014.csv'
 dates, highs, lows = [], [], []
 get_weather_data(filename, dates, highs, lows)
 
@@ -33,7 +33,7 @@ plt.plot(dates, lows, c='blue', alpha=0.6)
 plt.fill_between(dates, highs, lows, facecolor='blue', alpha=0.15)
 
 # 获取Death Valley天气数据
-filename = r'Learning\Python_Crash_Course\Chapter_16_download_data\death_valley_2014.csv'
+filename = r'Chapter_16_test_file\death_valley_2014.csv'
 dates, highs, lows = [], [], []
 get_weather_data(filename, dates, highs, lows)
 

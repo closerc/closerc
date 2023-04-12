@@ -22,4 +22,4 @@ hist.x_labels = [str(x) for x in range(2, max_result + 1)]
 hist.x_title = "Result"
 hist.y_title = "Frequency of Result"
 hist.add('D8+D8', frequencies)
-hist.render_to_file('two_D8.svg')
+hist.render_to_file(r'Chapter_15_test_file\two_D8.svg')

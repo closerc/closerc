@@ -5,7 +5,7 @@ import json
 
 def get_stored_username():
     """如果存储了用户名，就获取他"""
-    filename = 'username.json'
+    filename = r'Chapter_10_test_file\username.json'
     try:
         with open(filename) as f_obj:
             username = json.load(f_obj)
@@ -18,7 +18,7 @@ def get_stored_username():
 def get_new_username():
     """提示用户输入用户名"""
     username = input("What is your name? ")
-    filename = 'username.json'
+    filename = r'Chapter_10_test_file\username.json'
     with open(filename, 'w') as f_obj:
         json.dump(username, f_obj)
     return username

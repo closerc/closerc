@@ -1,6 +1,7 @@
 # 单词替换
 
-with open('learning_python.txt') as file_object:
+filename = r'Chapter_10_test_file\learning_python.txt'
+with open(filename) as file_object:
     lines = file_object.readlines()
 
 for line in lines:
