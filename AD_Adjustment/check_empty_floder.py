@@ -1,7 +1,7 @@
 import os
 import datetime
 
-target_dir = r"D:/shopee月数据/2023/shopee月数据_3/no_data"
+target_dir = r"D:/shopee月数据/shopee"
 num = 0
 err = 0
 start_time = datetime.datetime.now()

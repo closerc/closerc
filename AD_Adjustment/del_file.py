@@ -11,5 +11,5 @@ def del_file(path):
             os.remove(c_path)
 
 
-file_path = r'D:\shopee月数据\2023\shopee月数据_2 - 副本'
+file_path = r'D:\lazada联盟'
 del_file(file_path)

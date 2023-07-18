@@ -24,7 +24,7 @@ def lazada_placement(root_path):
                 if '--' in file:
                     filename = root_path + '\\' + shop + '\\' + shop_station + '\\' + file
                     # print(filename)
-                    all_data = pd.read_excel(filename, skiprows=7)
+                    all_data = pd.read_excel(filename, skiprows=7, engine='openpyxl')
                     SS_data = all_data[all_data['Placement'] == 'Sponsored Search']
                     SP_data = all_data[all_data['Placement'] == 'Sponsored Products']
                     SS_SP_data = all_data[(all_data['Placement'] == 'All - Sponsored Products') | (all_data['Placement'] == 'All - Sponsored Search')]
