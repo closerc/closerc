@@ -95,3 +95,4 @@ if __name__ == "__main__":
     lazada_zip(r'D:\lazada超级推荐', r'D:\lazada超级推荐')
     lazada_zip(r'D:\lazada全效宝', r'D:\lazada全效宝')
     lazada_zip(r'D:\lazada直通车', r'D:\lazada直通车')
+    # lazada_zip(r'D:\lazada联盟', r'D:\lazada联盟')
