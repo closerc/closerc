@@ -89,7 +89,7 @@ def lazada_zip(start_dir, zip_file):
 
 
 if __name__ == "__main__":
-    root_path = r'D:\lazada月数据'
+    root_path = r'D:\lazada'
     # root_path = 'r' + input('路径（shift+右键，复制为路径）：')
     lazada_placement(root_path)
     lazada_zip(r'D:\lazada超级推荐', r'D:\lazada超级推荐')
