@@ -1,7 +1,27 @@
 {
-    "python.analysis.typeCheckingMode": "off",
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": ["--ignore=E501, W504"],
-    "python.formatting.provider": "yapf",
+    "python.analysis.typeCheckingMode": "basic",
+    "ruff.lint.args": [
+        // F401, Imported but unused
+        // E402, Module level import not at top of file
+        // F541, f-string is missing placeholders
+        "--ignore=F401,E402,F541"
+      ],
+    "[python]": {
+    //【推荐】启用 Ruff Formatter 并配置标尺长度
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.rulers": [
+        88 // Ruff Formatter 默认长度
+    ],
+    //【可选】自动格式化 Python 代码
+    "editor.codeActionsOnSave": {
+        "source.organizeImports.ruff": "explicit"
+    },
+    "editor.formatOnSave": true
+    },
+    //【可选】自动格式化 Notebook 代码
+    "notebook.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+    },
+    "notebook.formatOnSave.enabled": true,
     "python.analysis.autoImportCompletions": true // Alt + Shift + F
 }

@@ -1,5 +1,5 @@
-import os
 import datetime
+import os
 
 target_dir = r"D:/shopee月数据/shopee"
 num = 0
