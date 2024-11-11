@@ -2,7 +2,7 @@ import os
 import shutil
 
 filelist = []
-rootdir = r'D:\shopee月数据\shopee'
+rootdir = r"D:\东南亚月数据\shopee月数据\shopee"
 filelist = os.listdir(rootdir)
 
 for file in filelist:
